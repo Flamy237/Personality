@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personality-test</title>
+</head>
+<style>
+    /* Style du formulaire */
+    form {
+      width: 80%;
+      margin: 40px auto;
+      padding: 20px;
+      background: linear-gradient(to bottom, #ff99cc, #ffe6ff);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Style des champs de saisie */
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      background: linear-gradient(to bottom, #ffffff, #f7f7f7);
+    }
+    
+    /* Style des étiquettes */
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    /* Style du bouton d'envoi */
+    input[type="button"] {
+      width: 100%;
+      padding: 10px;
+      background: linear-gradient(to bottom, #4CAF50, #3e8e41);
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+    }
+    
+    /* Style des erreurs */
+    .error {
+      color: red;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    
+    span {
+      color: red;
+      font-size: 12px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    #result
+    {
+      color: rgba(8, 92, 141, 0.897);
+      font-size: 12px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    /* Responsive design */
+    @media (max-width: 768px) {
+      form {
+        width: 90%;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      form {
+        width: 100%;
+      }
+    }
+</style>
+<script>
+    function fonction()
+    {
+        couleur=document.getElementById("couleur").value;
+        moment=document.getElementById("moment").value;
+        attire=document.getElementById("attire").value;
+
+       if(couleur=="")
+       {
+        document.getElementById('erreurcouleur').innerText='Veuillez remplir la couleur...'
+       }
+       else if(couleur !=1 && couleur !=2 && couleur !=3)
+      {
+        document.getElementById('erreurcouleur').innerText= 'Veuillez choisir entre 1.Noir / 2.Bleu  OU 3.Rouge'
+      }
+       else if(moment=="")
+       {
+           document.getElementById('erreurmoment').innerText= 'Veuillez Remplir le moment'
+       }
+       else if((moment !=1) && (moment !=2) && (moment !=3) )
+       {
+           document.getElementById('erreurmoment').innerText= 'Veuillez choisir entre 1.Matin / 2.Midi OU 3. Soire'
+       }
+       else if(attire=="")
+       {
+           document.getElementById('erreurattire').innerText= 'Veuillez remplir tout les champs'
+       }
+       else if((attire !=1) && (attire !=2) && (attire !=3) )
+       {
+           document.getElementById('erreurattire').innerText= 'Veuillez choisir entre 1.Comportement / 2.Apparence / 3.Argent'
+       }
+       else if ((couleur ==3) && (moment==3) && (attire==1))
+       {
+         document.getElementById('result').innerText="De première vue on pense que tu n'as de coeur mais au fond, tu met facilement le coeur🥰"
+       }
+       else if((couleur==2) && (moment==1) && (attire==3))
+       {
+         document.getElementById('result').innerText="Tu es une personne passioner mais pour te calmer meme quand tu as raison l'argent suffit😪"
+       }
+       else if((couleur==3) && (moment==3) && (attire==3))
+       {
+         document.getElementById('result').innerText="Tu es une personne Lugubre👻, avec des trait gotique☠ et tu es materialiste🤑 doublé d'opportuniste🎭"
+       }
+       else if((couleur==3) && (moment==2) && (attire==3))
+       {
+         document.getElementById('result').innerText="Tu es une personne Lugubre🎃, intelligente🧠 et tu priviligie le relations parraport a un interet👀 plustot qu'un sentiment👨‍❤️‍👨."
+       }
+       else
+       {
+        //Couleur
+        if(couleur==1)
+        {
+          resultcolor="Vous êtes une personne calme et apaisée, ";
+        }
+        else if(couleur==2)
+        {
+          resultcolor="Vous êtes une personne énergique et passionnée, "
+        }
+        else if(couleur==3)
+        {
+          resultcolor="Vous êtes une personne mystérieuse et introspective, "
+        }
+    
+       }
+       //Moment
+       if(moment==1)
+       {
+         resultmoment="Vous êtes aussi proactif(ve) et énergique."
+       }
+       else if(moment==2)
+       {
+         resultmoment="Vous prenner un temps de reflexion🧠  et d'analyse face a toute situation. "
+       }
+       else if(moment==3)
+       {
+         resultmoment="Vous êtes aussi une personne créative 🎇🎨 et imaginative🎊"
+       }
+       //Attrait
+       if(attire==1)
+       {
+         resultattire=" et Vous êtes attiré par les relations humaines et la sensibiliter🤗🤗."
+       }
+       else if(attire==2)
+       {
+         resultattire="et vous êtes attiré par l'esthétique et la beauté 🤩."
+       }
+       else if(attire==3)
+       {
+         resultattire="et vous êtes attiré par la sécurité financière♻ et le pouvoir☯🦾."
+       }
+       
+       document.getElementById("result").innerText=resultcolor+","+resultmoment+""+resultattire;
+
+    }
+</script>
+<body>
+    <form>
+        <label>Quelle est votre couleur préférer ? (1=Bleu, 2=Rouge, 3=Noir)</label>
+        <input type="text" id="couleur" placeholder="Choisir entre 1.Bleu \ 2.Rouge ou 3.Noir...">
+        <span id="erreurcouleur"></span>
+        <label>Quelle est votre moment de la journée ? (1=Matin, 2=Midi, 3=Soir)</label>
+        <input type="text" id="moment" placeholder="Choisir entre 1.Matin / 2.Midi ou 3.Soir">
+        <span id="erreurmoment"></span>
+        <label>Quesqui vous attire chez les autres ? (1=Comportement, 2=Apparence, 3=Argent)</label>
+        <input type="text" id="attire" placeholder="Choisir entre 1.Comportement, 2.Apparence, 3.Argent">
+        <span id="erreurattire"></span>
+        <input type="button" value="Personality-test" onclick="fonction()">
+        <span id="result"></span>
+    </form>
+</body>
+</html>
